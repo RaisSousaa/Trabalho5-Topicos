@@ -1,0 +1,2 @@
+cenario,total_drones,chegaram,colidiram,nao_concluiram,taxa_sucesso,taxa_colisao,tempo_total_simulacao,tempo_medio_chegada,distancia_media_percorrida
+sem_colisao,4,4,0,0,100.00,0.00,10,10.00,10.00
