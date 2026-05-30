@@ -5,32 +5,32 @@ from models.drone import Drone
 
 def cenario_sem_colisao():
     return [
-        Drone(id=1, posicao_inicial=(0, 0), destino=(10, 0), velocidade=1),
-        Drone(id=2, posicao_inicial=(0, 3), destino=(10, 3), velocidade=1),
-        Drone(id=3, posicao_inicial=(0, 6), destino=(10, 6), velocidade=1),
-        Drone(id=4, posicao_inicial=(0, 9), destino=(10, 9), velocidade=1),
+        Drone(id=1, posicao_inicial=(10, 20), destino=(90, 20), velocidade=2),
+        Drone(id=2, posicao_inicial=(10, 40), destino=(90, 40), velocidade=2),
+        Drone(id=3, posicao_inicial=(10, 60), destino=(90, 60), velocidade=2),
+        Drone(id=4, posicao_inicial=(10, 80), destino=(90, 80), velocidade=2),
     ]
 
 
 def cenario_colisao_central():
     return [
-        Drone(id=1, posicao_inicial=(0, 0), destino=(10, 10), velocidade=1),
-        Drone(id=2, posicao_inicial=(10, 10), destino=(0, 0), velocidade=1),
-        Drone(id=3, posicao_inicial=(0, 10), destino=(10, 0), velocidade=1),
-        Drone(id=4, posicao_inicial=(10, 0), destino=(0, 10), velocidade=1),
+        Drone(id=1, posicao_inicial=(10, 10), destino=(90, 90), velocidade=2),
+        Drone(id=2, posicao_inicial=(90, 90), destino=(10, 10), velocidade=2),
+        Drone(id=3, posicao_inicial=(10, 90), destino=(90, 10), velocidade=2),
+        Drone(id=4, posicao_inicial=(90, 10), destino=(10, 90), velocidade=2),
     ]
 
 
 def cenario_alta_densidade():
     return [
-        Drone(id=1, posicao_inicial=(0, 0), destino=(10, 10), velocidade=1),
-        Drone(id=2, posicao_inicial=(10, 10), destino=(0, 0), velocidade=1),
-        Drone(id=3, posicao_inicial=(0, 10), destino=(10, 0), velocidade=1),
-        Drone(id=4, posicao_inicial=(10, 0), destino=(0, 10), velocidade=1),
-        Drone(id=5, posicao_inicial=(5, 0), destino=(5, 10), velocidade=1),
-        Drone(id=6, posicao_inicial=(5, 10), destino=(5, 0), velocidade=1),
-        Drone(id=7, posicao_inicial=(0, 5), destino=(10, 5), velocidade=1),
-        Drone(id=8, posicao_inicial=(10, 5), destino=(0, 5), velocidade=1),
+        Drone(id=1, posicao_inicial=(10, 10), destino=(90, 90), velocidade=2),
+        Drone(id=2, posicao_inicial=(90, 90), destino=(10, 10), velocidade=2),
+        Drone(id=3, posicao_inicial=(10, 90), destino=(90, 10), velocidade=2),
+        Drone(id=4, posicao_inicial=(90, 10), destino=(10, 90), velocidade=2),
+        Drone(id=5, posicao_inicial=(50, 10), destino=(50, 90), velocidade=2),
+        Drone(id=6, posicao_inicial=(50, 90), destino=(50, 10), velocidade=2),
+        Drone(id=7, posicao_inicial=(10, 50), destino=(90, 50), velocidade=2),
+        Drone(id=8, posicao_inicial=(90, 50), destino=(10, 50), velocidade=2),
     ]
 
 

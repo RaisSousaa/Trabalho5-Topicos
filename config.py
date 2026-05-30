@@ -1,8 +1,7 @@
 CONFIG = {
     #"cenario": "aleatorio_medio",
-    #"cenario": "aleatorio_media_densidade",
-    #"cenario": "aleatorio_media_densidade",
-    "cenario": "sem_colisao",
+    "cenario": "aleatorio_media_densidade",
+    #"cenario": "sem_colisao",
     #"cenario": "aleatorio_baixa_densidade",
     
 

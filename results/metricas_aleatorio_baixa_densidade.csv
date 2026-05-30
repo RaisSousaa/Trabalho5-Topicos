@@ -1,0 +1,9 @@
+cenario,total_drones,chegaram,colidiram,nao_concluiram,taxa_sucesso,taxa_colisao,tempo_total_simulacao,tempo_medio_chegada,distancia_media_percorrida
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
+aleatorio_baixa_densidade,10,8,2,0,80.00,20.00,92,46.75,44.01
