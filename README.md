@@ -269,4 +269,3 @@ Essas simplificações foram adotadas para manter o foco na movimentação dos d
 ```bash
 python3 dearpygui_main.py
 ```
-
