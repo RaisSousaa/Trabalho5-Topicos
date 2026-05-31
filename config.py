@@ -1,9 +1,6 @@
 CONFIG = {
-    #"cenario": "aleatorio_medio",
-    "cenario": "aleatorio_media_densidade",
-    #"cenario": "sem_colisao",
-    #"cenario": "aleatorio_baixa_densidade",
-    
+    #cenario padrão de inicialização no plot
+    "cenario": "sem_colisao",
 
 
     "max_passos": 100,

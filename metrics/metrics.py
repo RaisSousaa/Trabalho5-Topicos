@@ -40,7 +40,7 @@ def calcular_metricas(drones, total_passos):
 
 
 def mostrar_metricas(metricas):
-    print("\n========== MÉTRICAS FINAIS ==========")
+    print("\n========== METRICAS FINAIS ==========")
     print(f"Total de drones: {metricas['total_drones']}")
     print(f"Drones que chegaram ao destino: {metricas['chegaram']}")
     print(f"Drones que colidiram: {metricas['colidiram']}")

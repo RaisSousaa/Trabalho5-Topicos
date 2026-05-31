@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
+#gera os graficos.
+
 
 def carregar_resultados(caminho_csv):
     if not os.path.exists(caminho_csv):

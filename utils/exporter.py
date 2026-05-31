@@ -1,6 +1,9 @@
 import csv
 import os
 
+#gera:
+#1. As métricas em CSV
+#2. Os eventos em LOG
 
 def salvar_metricas_csv(metricas, config):
     os.makedirs("results", exist_ok=True)

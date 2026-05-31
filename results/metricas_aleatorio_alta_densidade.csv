@@ -1,3 +1,4 @@
 cenario,total_drones,chegaram,colidiram,nao_concluiram,taxa_sucesso,taxa_colisao,tempo_total_simulacao,tempo_medio_chegada,distancia_media_percorrida
 aleatorio_alta_densidade,50,32,16,2,64.00,32.00,100,43.00,42.03
 aleatorio_alta_densidade,50,32,16,2,64.00,32.00,100,43.00,42.03
+aleatorio_alta_densidade,50,32,16,2,64.00,32.00,100,43.00,42.03

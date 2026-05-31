@@ -1,507 +1,272 @@
-# Simulador de Drones 2D
+# Simulador de Drones 2D — Dear PyGui
 
-## Descrição
+Este projeto implementa um simulador de drones em ambiente 2D com interface gráfica em **Dear PyGui**. A simulação permite visualizar drones em movimento, detectar colisões, registrar eventos e acompanhar métricas em tempo real.
 
-Este projeto consiste em um simulador computacional de drones em um ambiente bidimensional. O simulador representa um conjunto de drones que se deslocam de posições iniciais até destinos definidos, considerando que todos voam na mesma altura.
+## Funcionalidades
 
-Durante a execução, o sistema movimenta os drones passo a passo, verifica possíveis colisões entre eles, registra eventos importantes e apresenta métricas ao final da simulação.
+- Escolha de cenário pela interface;
+- Visualização dos drones em ambiente 2D;
+- Exibição de rotas, trajetórias e raio de colisão;
+- Controles para iniciar, pausar, executar passo a passo e resetar;
+- Detecção de colisões;
+- Métricas em tempo real;
+- Log de eventos;
+- Exportação de métricas e eventos ao final da simulação.
 
-A visualização permite observar os drones como pontos em movimento em uma visão superior do ambiente.
+## Tecnologias
 
----
-
-## Objetivo do Projeto
-
-O objetivo do projeto é desenvolver um simulador capaz de:
-
-- Representar drones em movimento;
-- Simular o deslocamento dos drones até destinos definidos;
-- Detectar colisões entre drones;
-- Registrar eventos relevantes durante a execução;
-- Gerar métricas finais da simulação;
-- Apresentar visualmente a movimentação dos drones em um ambiente 2D.
-
----
-
-## Tecnologias Utilizadas
-
-O projeto foi desenvolvido em Python, utilizando a biblioteca Matplotlib para a visualização gráfica da simulação.
-
-Principais tecnologias:
-
-- Python 3
-- Matplotlib
-
----
+- Python 3;
+- Dear PyGui.
 
 ## Estrutura do Projeto
 
 ```text
 simulador-drones/
-│
-├── main.py
+├── dearpygui_main.py
 ├── config.py
-│
+├── scenarios.py
+├── requirements.txt
+├── README.md
 ├── models/
 │   └── drone.py
-│
 ├── simulation/
-│   ├── simulator.py
 │   └── collision.py
-│
 ├── metrics/
 │   └── metrics.py
-│
-└── visualization/
-    └── visualizer.py
+├── utils/
+│   └── exporter.py
+├── visualization/
+│   └── dearpygui_visualizer.py
+└── results/
 ```
-
----
-
-## Descrição dos Arquivos
-
-### `main.py`
-
-Arquivo principal do projeto.
-
-Responsável por:
-
-- Criar os drones;
-- Definir as posições iniciais;
-- Definir os destinos;
-- Definir a velocidade de cada drone;
-- Criar o simulador;
-- Iniciar a execução da simulação.
-
----
-
-### `config.py`
-
-Arquivo que armazena os parâmetros gerais da simulação.
-
-Exemplo:
-
-```python
-CONFIG = {
-    "max_passos": 30,
-    "raio_colisao": 1.0,
-    "limite_x": (-1, 11),
-    "limite_y": (-1, 11),
-    "intervalo_animacao": 500
-}
-```
-
----
-
-### `models/drone.py`
-
-Arquivo que contém a classe `Drone`.
-
-Cada objeto da classe `Drone` representa um drone da simulação.
-
-Cada drone possui:
-
-- Identificador;
-- Posição atual;
-- Posição inicial;
-- Destino;
-- Velocidade;
-- Estado atual;
-- Distância percorrida;
-- Tempo de chegada.
-
-Estados possíveis de um drone:
-
-- `em_movimento`;
-- `chegou`;
-- `colidiu`;
-- `nao_concluiu`.
-
----
-
-### `simulation/simulator.py`
-
-Arquivo responsável por controlar a execução da simulação.
-
-Ele coordena:
-
-- O avanço dos passos da simulação;
-- A movimentação dos drones;
-- A verificação de chegada ao destino;
-- A verificação de colisões;
-- O registro do histórico da simulação;
-- A geração das métricas;
-- A chamada da visualização.
-
----
-
-### `simulation/collision.py`
-
-Arquivo responsável pela lógica de colisão.
-
-A colisão é verificada calculando a distância entre dois drones. Caso essa distância seja menor ou igual ao raio de colisão definido, os drones são marcados como colididos.
-
----
-
-### `metrics/metrics.py`
-
-Arquivo responsável por calcular e exibir as métricas finais da simulação.
-
-As métricas incluem:
-
-- Total de drones;
-- Drones que chegaram ao destino;
-- Drones que colidiram;
-- Drones que não concluíram a missão;
-- Taxa de sucesso;
-- Taxa de colisão;
-- Tempo total da simulação;
-- Tempo médio de chegada;
-- Distância média percorrida.
-
----
-
-### `visualization/visualizer.py`
-
-Arquivo responsável pela visualização gráfica da simulação.
-
-A visualização mostra:
-
-- Drones em movimento;
-- Destinos dos drones;
-- Estados dos drones por meio de cores;
-- Evolução da simulação passo a passo.
-
----
 
 ## Instalação
 
-Para executar o projeto, é necessário ter o Python instalado na máquina.
-
-Após baixar ou clonar o repositório, acesse a pasta do projeto:
+Crie o ambiente virtual:
 
 ```bash
-cd simulador-drones
+python3 -m venv venv
 ```
 
-Instale a biblioteca necessária:
+Ative o ambiente virtual:
 
 ```bash
-pip install matplotlib
+source venv/bin/activate
 ```
 
-Caso esteja usando Linux ou tenha mais de uma versão do Python instalada, pode ser necessário usar:
+No Windows, use:
 
 ```bash
-pip3 install matplotlib
+venv\Scripts\activate
 ```
 
----
+Instale as dependências:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+Caso não utilize `requirements.txt`, instale manualmente:
+
+```bash
+python3 -m pip install dearpygui
+```
+
+## Arquivo requirements.txt
+
+O arquivo `requirements.txt` deve conter:
+
+```txt
+dearpygui
+pandas
+matplotlib
+```
 
 ## Como Executar
 
-Dentro da pasta do projeto, execute o arquivo principal:
+Execute o simulador com:
 
 ```bash
-python main.py
+python3 dearpygui_main.py
 ```
 
-Ou, dependendo do ambiente:
+Após executar o comando, será aberta a interface gráfica do simulador.
 
-```bash
-python3 main.py
-```
+## Como Usar
 
-Ao executar o programa:
+Na interface Dear PyGui:
 
-1. A simulação será iniciada;
-2. Os drones serão movimentados em direção aos seus destinos;
-3. As colisões serão verificadas;
-4. As métricas finais serão exibidas no terminal;
-5. Uma janela gráfica será aberta mostrando a movimentação dos drones.
+1. Escolha o cenário no painel esquerdo;
+2. Clique em **Iniciar**;
+3. Observe os drones se movimentando no ambiente 2D;
+4. Acompanhe as métricas no painel direito;
+5. Use **Pausar / Continuar** para controlar a execução;
+6. Use **Executar 1 passo** para analisar a simulação passo a passo;
+7. Use **Reset visualização** para reiniciar o cenário atual.
 
----
+## Cenários Disponíveis
 
-## Parâmetros de Entrada
-
-Os parâmetros gerais da simulação estão no arquivo `config.py`.
-
-```python
-CONFIG = {
-    "max_passos": 30,
-    "raio_colisao": 1.0,
-    "limite_x": (-1, 11),
-    "limite_y": (-1, 11),
-    "intervalo_animacao": 500
-}
-```
-
-### Descrição dos parâmetros
-
-| Parâmetro | Descrição |
-|---|---|
-| `max_passos` | Quantidade máxima de passos da simulação |
-| `raio_colisao` | Distância mínima para considerar colisão entre dois drones |
-| `limite_x` | Limite horizontal do ambiente exibido na visualização |
-| `limite_y` | Limite vertical do ambiente exibido na visualização |
-| `intervalo_animacao` | Intervalo em milissegundos entre os quadros da animação |
-
----
-
-## Definição dos Drones
-
-Os drones são definidos no arquivo `main.py`.
-
-Exemplo:
-
-```python
-drones = [
-    Drone(id=1, posicao_inicial=(0, 0), destino=(10, 10), velocidade=1),
-    Drone(id=2, posicao_inicial=(10, 10), destino=(0, 0), velocidade=1),
-    Drone(id=3, posicao_inicial=(0, 10), destino=(10, 0), velocidade=1),
-]
-```
-
-Cada drone possui os seguintes atributos de entrada:
-
-| Atributo | Descrição |
-|---|---|
-| `id` | Identificador único do drone |
-| `posicao_inicial` | Coordenada inicial do drone no ambiente 2D |
-| `destino` | Coordenada final que o drone deve alcançar |
-| `velocidade` | Quantidade de unidades percorridas por passo |
-
----
-
-## Funcionamento da Simulação
-
-A simulação ocorre em passos discretos. A cada passo, o simulador atualiza o estado dos drones.
-
-O funcionamento geral é:
-
-1. O simulador inicia com uma lista de drones;
-2. Cada drone possui uma posição inicial e um destino;
-3. A cada passo, os drones em movimento calculam a direção até o destino;
-4. Cada drone se desloca de acordo com sua velocidade;
-5. O sistema verifica se algum drone chegou ao destino;
-6. O sistema verifica colisões entre os drones;
-7. O estado atual dos drones é salvo no histórico;
-8. O processo continua até que todos os drones finalizem ou o limite máximo de passos seja atingido;
-9. Ao final, são exibidas as métricas e a visualização da simulação.
-
----
-
-## Movimentação dos Drones
-
-A movimentação é feita calculando a direção entre a posição atual do drone e o seu destino.
-
-Para isso, o simulador calcula a distância até o destino e move o drone proporcionalmente na direção correta.
-
-De forma simplificada:
+A interface permite executar os seguintes cenários:
 
 ```text
-direção_x = (destino_x - x_atual) / distância
-direção_y = (destino_y - y_atual) / distância
-
-novo_x = x_atual + direção_x * velocidade
-novo_y = y_atual + direção_y * velocidade
+Sem colisão
+Colisão central
+Alta densidade fixa
+Aleatório - baixa densidade
+Aleatório - média densidade
+Aleatório - alta densidade
 ```
 
-Quando a distância até o destino é menor ou igual à velocidade do drone, ele é colocado diretamente no destino e seu estado passa a ser `chegou`.
+No código, esses cenários são definidos no arquivo `scenarios.py`.
 
----
+## Configuração
+
+Os principais parâmetros da simulação ficam no arquivo `config.py`.
+
+Exemplos de parâmetros configuráveis:
+
+```text
+cenário inicial
+número máximo de passos
+raio de colisão
+largura do ambiente
+altura do ambiente
+intervalo da animação
+```
+
+O cenário definido em `config.py` funciona como cenário inicial. Depois que a interface é aberta, o usuário pode escolher outro cenário diretamente pela tela.
 
 ## Estados dos Drones
 
-Durante a simulação, cada drone pode assumir um dos seguintes estados:
-
-| Estado | Significado |
-|---|---|
-| `em_movimento` | O drone ainda está se deslocando até o destino |
-| `chegou` | O drone alcançou o destino definido |
-| `colidiu` | O drone colidiu com outro drone |
-| `nao_concluiu` | O drone não chegou ao destino dentro do limite de passos |
-
----
-
-## Tratamento de Colisões
-
-Como todos os drones voam na mesma altura, a colisão é analisada apenas no plano bidimensional.
-
-A verificação de colisão é feita comparando todos os pares de drones em movimento.
-
-A distância entre dois drones é calculada pela distância euclidiana:
+Cada drone pode assumir um dos seguintes estados:
 
 ```text
-distância = sqrt((x1 - x2)² + (y1 - y2)²)
+em_movimento
+chegou
+colidiu
+nao_concluiu
 ```
 
-Se a distância entre dois drones for menor ou igual ao `raio_colisao`, os dois drones são marcados com o estado `colidiu`.
+## Funcionamento do Movimento
 
-Após uma colisão:
+Cada drone possui uma posição inicial, um destino e uma velocidade.
 
-- Os drones envolvidos deixam de se movimentar;
-- A missão desses drones é interrompida;
-- O evento de colisão é registrado;
-- Os drones colididos são contabilizados nas métricas finais.
+A cada passo da simulação, o drone calcula a direção até o destino e se desloca nessa direção. Quando chega ao destino, seu estado muda para `chegou`.
 
-Exemplo de evento registrado:
+## Critério de Colisão
+
+A colisão ocorre quando a distância entre dois drones é menor ou igual ao raio de colisão definido na configuração.
+
+Quando uma colisão é detectada:
 
 ```text
-Passo 7: Drone 1 colidiu com Drone 2
+- os drones envolvidos mudam para o estado "colidiu";
+- os drones envolvidos deixam de se mover;
+- o evento é registrado no log;
+- as métricas são atualizadas.
 ```
 
----
+## Métricas Calculadas
 
-## Métricas Geradas
-
-Ao final da simulação, o sistema apresenta as métricas finais no terminal.
-
-As métricas geradas são:
-
-| Métrica | Descrição |
-|---|---|
-| Total de drones | Quantidade total de drones simulados |
-| Drones que chegaram ao destino | Quantidade de drones que concluíram a missão |
-| Drones que colidiram | Quantidade de drones envolvidos em colisões |
-| Drones que não concluíram a missão | Quantidade de drones que não chegaram ao destino dentro do limite de passos |
-| Taxa de sucesso | Percentual de drones que chegaram ao destino |
-| Taxa de colisão | Percentual de drones que colidiram |
-| Tempo total da simulação | Número total de passos executados |
-| Tempo médio de chegada | Média de passos necessários para os drones chegarem ao destino |
-| Distância média percorrida | Média da distância percorrida pelos drones |
-
-Exemplo de saída:
+O simulador calcula:
 
 ```text
-========== MÉTRICAS FINAIS ==========
-Total de drones: 3
-Drones que chegaram ao destino: 1
-Drones que colidiram: 2
-Drones que não concluíram a missão: 0
-Taxa de sucesso: 33.33%
-Taxa de colisão: 66.67%
-Tempo total da simulação: 7 passos
-Tempo médio de chegada: 0.00 passos
-Distância média percorrida: 6.67
+Total de drones
+Drones em movimento
+Drones que chegaram ao destino
+Drones que colidiram
+Drones que não concluíram a missão
+Taxa de sucesso
+Taxa de colisão
+Tempo médio de chegada
+Distância média percorrida
+Passo atual
 ```
 
----
+## Arquivos Gerados
 
-## Visualização
+Ao final da simulação, os resultados são salvos na pasta `results/`.
 
-A visualização da simulação é feita com a biblioteca Matplotlib.
-
-Os drones são representados por pontos em um ambiente 2D, e os destinos são representados por marcadores em formato de `X`.
-
-### Legenda de cores
-
-| Cor | Significado |
-|---|---|
-| Azul | Drone em movimento |
-| Verde | Drone chegou ao destino |
-| Vermelho | Drone colidiu |
-| Cinza | Drone não concluiu a missão |
-| X preto | Destino do drone |
-
-A visualização permite observar a dinâmica da simulação durante a execução, mostrando os drones se deslocando, chegando ao destino ou colidindo.
-
----
-
-## Exemplo de Cenário
-
-O cenário utilizado no exemplo possui três drones:
-
-```python
-drones = [
-    Drone(id=1, posicao_inicial=(0, 0), destino=(10, 10), velocidade=1),
-    Drone(id=2, posicao_inicial=(10, 10), destino=(0, 0), velocidade=1),
-    Drone(id=3, posicao_inicial=(0, 10), destino=(10, 0), velocidade=1),
-]
-```
-
-Nesse cenário, os drones seguem trajetórias que podem se cruzar, permitindo testar a detecção de colisão.
-
----
-
-## Decisões de Modelagem
-
-Durante o desenvolvimento, foram adotadas algumas decisões para simplificar e organizar a simulação:
-
-- O ambiente é bidimensional;
-- A visualização é feita em visão superior;
-- Todos os drones voam na mesma altura;
-- A movimentação ocorre em passos discretos;
-- A velocidade de cada drone é constante;
-- A colisão é detectada por proximidade entre drones;
-- O raio de colisão é configurável;
-- Quando dois drones colidem, ambos param de se movimentar;
-- Drones que chegaram ao destino não continuam participando da movimentação;
-- Drones que não chegam ao destino até o limite de passos são marcados como `nao_concluiu`.
-
----
-
-## Limitações do Simulador
-
-A versão atual possui algumas simplificações:
-
-- Não há variação de altitude;
-- Não há desvio de rota;
-- Não há obstáculos fixos;
-- Os drones não tentam evitar colisões;
-- Os drones colididos são removidos da missão;
-- O ambiente não possui restrições físicas complexas, como vento ou aceleração.
-
-Essas limitações foram adotadas para manter o simulador simples, funcional e compatível com os requisitos principais do trabalho.
-
----
-
-## Possíveis Melhorias Futuras
-
-Algumas melhorias podem ser adicionadas em versões futuras:
-
-- Fazer drones colididos permanecerem no ambiente como obstáculos;
-- Criar cenários automáticos com posições aleatórias;
-- Permitir velocidades diferentes para cada drone;
-- Permitir configuração dos drones por arquivo externo;
-- Exportar métricas para arquivo CSV;
-- Gerar gráficos finais das métricas;
-- Adicionar obstáculos fixos no ambiente;
-- Implementar desvio de rota para evitar colisões;
-- Permitir escolha de parâmetros pelo usuário via terminal;
-- Salvar a animação em vídeo ou GIF;
-- Criar uma interface gráfica mais completa.
-
----
-
-## Como Apresentar o Projeto
-
-Durante a apresentação, recomenda-se explicar o projeto na seguinte ordem:
-
-1. Objetivo do simulador;
-2. Estrutura dos arquivos;
-3. Como os drones são representados;
-4. Como ocorre a movimentação;
-5. Como a colisão é detectada;
-6. Quais métricas são geradas;
-7. Como a visualização funciona;
-8. Quais decisões de modelagem foram adotadas;
-9. Quais melhorias poderiam ser implementadas futuramente.
-
-Resumo para apresentação:
+Exemplos:
 
 ```text
-O simulador representa drones em um ambiente 2D. Cada drone possui uma posição inicial, um destino e uma velocidade. A cada passo da simulação, os drones se movem em direção aos seus destinos. O sistema verifica colisões calculando a distância entre os drones. Se a distância for menor ou igual ao raio de colisão, os drones envolvidos são marcados como colididos. Ao final, o simulador apresenta métricas como quantidade de drones que chegaram, colidiram ou não concluíram a missão. A visualização mostra os drones em movimento com cores diferentes para cada estado.
+results/metricas_<cenario>.csv
+results/eventos_<cenario>.log
 ```
 
----
+O arquivo `.csv` contém as métricas da simulação.
 
-## Autores
+O arquivo `.log` contém os eventos registrados, como colisões.
 
-Projeto desenvolvido por:
+## Funcionamento Geral
 
-- Sthefany Moura Godinho
-- Rais Eliete de Sousa
+A simulação ocorre em passos discretos.
 
-Disciplina: Tópicos em Computação — Modelagem Analítica  
-Professor: Francisco Airton
+A cada passo:
+
+1. Os drones em movimento avançam em direção aos seus destinos;
+2. O sistema verifica se algum drone chegou ao destino;
+3. O sistema verifica colisões entre drones;
+4. Os eventos são registrados;
+5. As métricas são atualizadas;
+6. A interface gráfica é redesenhada.
+
+## Organização do Código
+
+O projeto foi organizado de forma modular:
+
+```text
+config.py
+→ define os parâmetros gerais da simulação
+
+scenarios.py
+→ cria os cenários com posições iniciais e destinos dos drones
+
+models/drone.py
+→ define o comportamento individual de cada drone
+
+simulation/collision.py
+→ verifica colisões entre drones
+
+metrics/metrics.py
+→ calcula as métricas da simulação
+
+utils/exporter.py
+→ salva métricas e eventos na pasta results/
+
+visualization/dearpygui_visualizer.py
+→ constrói a interface gráfica e atualiza a visualização
+
+dearpygui_main.py
+→ inicia a execução principal do simulador
+```
+
+## Decisões de Projeto
+
+O projeto foi organizado separando a lógica da simulação da interface gráfica.
+
+Essa separação permite modificar a visualização sem alterar diretamente o comportamento dos drones, a detecção de colisões ou o cálculo das métricas.
+
+A interface Dear PyGui foi escolhida por permitir uma visualização interativa, com controles para iniciar, pausar, executar passo a passo, resetar e trocar cenários.
+
+## Limitações
+
+Algumas simplificações foram adotadas:
+
+```text
+- ambiente bidimensional;
+- todos os drones na mesma altitude;
+- movimento por passos discretos;
+- ausência de obstáculos externos;
+- ausência de controle físico realista de aceleração;
+- ausência de planejamento automático de rotas.
+```
+
+Essas simplificações foram adotadas para manter o foco na movimentação dos drones, na detecção de colisões e na análise das métricas geradas pela simulação.
+
+## Comando Principal
+
+```bash
+python3 dearpygui_main.py
+```
+

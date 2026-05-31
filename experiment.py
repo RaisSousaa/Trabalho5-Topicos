@@ -6,6 +6,7 @@ from config import CONFIG
 from scenarios import obter_cenario
 from simulation.simulator import Simulador
 
+#gera resultados para análise.
 
 def calcular_media(valores):
     if not valores:
@@ -28,7 +29,7 @@ def executar_experimentos():
 
     resultados_resumidos = []
 
-    print("========== INÍCIO DOS EXPERIMENTOS ==========")
+    print("========== INICIO DOS EXPERIMENTOS ==========")
     print(f"Cenários: {cenarios}")
     print(f"Repetições por cenário: {repeticoes}")
     print(f"Seed base: {seed_base}")
