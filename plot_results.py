@@ -112,15 +112,6 @@ def gerar_graficos():
 
     grafico_barras_com_desvio(
         df=df,
-        coluna_media="media_taxa_colisao",
-        coluna_desvio="desvio_taxa_colisao",
-        titulo="Taxa média de colisão por cenário",
-        eixo_y="Taxa de colisão (%)",
-        nome_arquivo="taxa_colisao_por_cenario.png"
-    )
-
-    grafico_barras_com_desvio(
-        df=df,
         coluna_media="media_chegaram",
         coluna_desvio="desvio_chegaram",
         titulo="Média de drones que chegaram ao destino por cenário",
@@ -144,24 +135,6 @@ def gerar_graficos():
         titulo="Média de drones que não concluíram por cenário",
         eixo_y="Quantidade média de drones",
         nome_arquivo="drones_nao_concluiram_por_cenario.png"
-    )
-
-    grafico_barras_com_desvio(
-        df=df,
-        coluna_media="media_tempo_total",
-        coluna_desvio="desvio_tempo_total",
-        titulo="Tempo médio total da simulação por cenário",
-        eixo_y="Passos",
-        nome_arquivo="tempo_total_por_cenario.png"
-    )
-
-    grafico_barras_com_desvio(
-        df=df,
-        coluna_media="media_distancia_percorrida",
-        coluna_desvio="desvio_distancia_percorrida",
-        titulo="Distância média percorrida por cenário",
-        eixo_y="Distância média",
-        nome_arquivo="distancia_media_por_cenario.png"
     )
 
     print("\nTodos os gráficos foram gerados com sucesso.")
